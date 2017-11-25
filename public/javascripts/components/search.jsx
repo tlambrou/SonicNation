@@ -19,7 +19,7 @@ export default class Search extends Component {
           floatingLabelText="Search"
           onChange={(e) => this.changeSearch(e)}
           />
-        <p><span>Here is your search... {this.state.search}</span></p>
+        <p><span><strong>Here is your search:</strong> {this.state.search}</span></p>
       </div>
     );
   }

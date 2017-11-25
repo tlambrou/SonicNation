@@ -21973,7 +21973,12 @@
 	          _react2.default.createElement(
 	            'span',
 	            null,
-	            'Here is your search... ',
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Here is your search:'
+	            ),
+	            ' ',
 	            this.state.search
 	          )
 	        )
