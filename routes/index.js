@@ -4,13 +4,36 @@ const router = express.Router();
 import { renderToString } from "react-dom/server";
 import App from "../public/javascripts/components/app";
 import React from "react";
+var amazon = require('amazon-product-api');
+
 
 /* GET home page. */
 router.get("/", function(req, res) {
   const markup = renderToString(<App />);
 
+  var awsClient = amazon.createClient({
+    awsId: process.env.AWSAccessKeyId,
+    awsSecret: process.env.AWSSecretKey
+  });
+
+ // BrowseNode: 11091801
+
+  // awsClient.itemLookup({
+  // idType: 'UPC',
+  // itemId: '884392579524',
+  // responseGroup: "ItemAttributes,BrowseNodes"
+  awsClient.itemSearch({
+  keywords: 'crybaby wah',
+  browseNodeId: '11091801',
+  responseGroup: "ItemAttributes,BrowseNodes,Images"
+  }).then(function(results){
+    console.log("We got results!: ", results[0].MediumImage[0]);
+  }).catch(function(err){
+    console.log("There was an error: ", err.Error[0].Message);
+  });
+
   res.render("index", {
-    title: "Express",
+    title: "SonicNation",
     markup: markup
   });
 });
