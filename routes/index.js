@@ -9,7 +9,8 @@ var amazon = require('amazon-product-api');
 
 /* GET home page. */
 router.get("/", function(req, res) {
-  const markup = renderToString(<App />);
+  // const markup = renderToString(<App />);
+  const markup = JSON.stringify(<App />);
 
   var awsClient = amazon.createClient({
     awsId: process.env.AWSAccessKeyId,
@@ -32,9 +33,10 @@ router.get("/", function(req, res) {
     console.log("There was an error: ", err.Error[0].Message);
   });
 
+  console.log(`markup: ${JSON.parse(markup)}`);
   res.render("index", {
     title: "SonicNation",
-    markup: markup
+    markup: JSON.parse(markup)
   });
 });
 
