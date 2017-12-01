@@ -5,7 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div role="main" id="content">{{{markup}}}</div>
+    <div id="content">{{{markup}}}</div>
 
     <script src="javascripts/bundle.js"></script>
   </body>

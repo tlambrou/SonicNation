@@ -4,14 +4,13 @@ const router = express.Router();
 import { renderToString } from "react-dom/server";
 import App from "../public/javascripts/components/app";
 import React from "react";
-var amazon = require('amazon-product-api');
-
 
 /* GET home page. */
 router.get("/", function(req, res) {
   // const markup = renderToString(<App />);
   const markup = JSON.stringify(<App />);
 
+<<<<<<< HEAD
   var awsClient = amazon.createClient({
     awsId: process.env.AWSAccessKeyId,
     awsSecret: process.env.AWSSecretKey
@@ -37,6 +36,11 @@ router.get("/", function(req, res) {
   res.render("index", {
     title: "SonicNation",
     markup: JSON.parse(markup)
+=======
+  res.render("index", {
+    title: "Express",
+    markup: markup
+>>>>>>> parent of ee07712... Got AWS Product API working
   });
 });
 
