@@ -8,11 +8,8 @@
     "build": "webpack"
   },
   "dependencies": {
-<<<<<<< HEAD
     "amazon-product-api": "^0.4.4",
     "axios": "^0.17.1",
-=======
->>>>>>> parent of ee07712... Got AWS Product API working
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.9.0",
