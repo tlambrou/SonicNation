@@ -28,7 +28,7 @@ export default class Search extends Component {
           floatingLabelText="Search"
           onUpdateInput={this.changeSearch}
           />
-        {this.state.waiting ? <ProgressLoader /> : }
+        <ProgressLoader />
         <p><span><strong>Here is your search:</strong>... {this.state.search}</span></p>
       </div>
     );
@@ -41,12 +41,11 @@ export default class Search extends Component {
       keywords: value,
       browseNodeId: '11091801',
       responseGroup: "ItemAttributes,BrowseNodes,Images"
-      }).then(function(results){
-        console.log("We got results!: ", results[0].MediumImage[0]);
-      }).catch(function(err){
-        console.log("There was an error: ", err.Error[0].Message);
-      });
-    })
+    }).then(function(results){
+      console.log("We got results!: ", results[0].MediumImage[0]);
+    }).catch(function(err){
+      console.log("There was an error: ", err.Error[0].Message);
+    });
 
     this.setState({
       search: text
